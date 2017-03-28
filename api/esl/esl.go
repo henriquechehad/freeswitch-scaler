@@ -9,6 +9,7 @@ import (
 	"errors"
 
 	"github.com/0x19/goesl"
+	cfg "github.com/henriquechehad/freeswitch-scaler/config"
 )
 
 type ESLConf struct {
@@ -33,17 +34,25 @@ func NewESLClient(cfg *ESLConf) error {
 func (c *ESLConf) GetActiveCalls() (int, error) {
 	go c.Client.Handle()
 
-	c.Client.Send("event json ALL")
-	c.Client.BgApi("show channels")
+	err := c.Client.Send("event json ALL")
+	if err != nil {
+		return -1, err
+	}
+	c.Client.BgApi("show calls")
+	if err != nil {
+		return -1, err
+	}
 
-	for i := 0; i < 10; i++ {
+	//defer c.Client.Close()
+
+	for i := 0; i < cfg.Config.ESLMaxTries; i++ {
 		msg, err := c.Client.ReadMessage()
 		if err != nil {
 			// If it contains EOF, we really dont care...
 			if !strings.Contains(err.Error(), "EOF") && err.Error() != "unexpected end of JSON input" {
 				goesl.Error("Error while reading Freeswitch message: %s", err)
 			}
-			return 0, nil
+			return -1, nil
 		}
 
 		// get active calls by regex
@@ -58,5 +67,5 @@ func (c *ESLConf) GetActiveCalls() (int, error) {
 		}
 	}
 
-	return 0, errors.New("Exceded max tries and did not get the result")
+	return -1, errors.New("Exceded max tries and did not get the result")
 }

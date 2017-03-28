@@ -1,0 +1,5 @@
+consul_server: "127.0.0.1:8500"
+esl_default_timeout: 10
+esl_default_port: 8021
+esl_default_password: "ClueCon"
+esl_max_tries: 10

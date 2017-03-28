@@ -26,13 +26,13 @@ func NewClient(c *ConsulConf) error {
 	return nil
 }
 
-func (c *ConsulConf) GetMembers() []*consulApi.AgentMember {
-	members, err := c.Client.Agent().Members(true)
+func (c *ConsulConf) GetMembers() ([]*consulApi.AgentMember, error) {
+	members, err := c.Client.Agent().Members(false)
 	if err != nil {
-		log.Println("Error getting consul members:", err)
+		return nil, err
 	}
 
-	return members
+	return members, err
 }
 
 func (c *ConsulConf) UpdateKV(addr string, key string, value []byte) error {
