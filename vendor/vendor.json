@@ -1,0 +1,37 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "T7dh4a+fV+RqXD7IptXe9m59RLw=",
+			"path": "github.com/0x19/goesl",
+			"revision": "eb969c5ac6997afa224b5b9f688bdc026e7b69da",
+			"revisionTime": "2016-08-09T11:39:38Z"
+		},
+		{
+			"checksumSHA1": "SQmh4d9aZQDJS1qwYLV3GEL4OVY=",
+			"path": "github.com/hashicorp/consul/api",
+			"revision": "f8eb854e6f1c00efcbc494667ae8360248a91710",
+			"revisionTime": "2017-03-27T16:04:40Z"
+		},
+		{
+			"checksumSHA1": "b8F628srIitj5p7Y130xc9k0QWs=",
+			"path": "github.com/hashicorp/go-cleanhttp",
+			"revision": "3573b8b52aa7b37b9358d966a898feb387f62437",
+			"revisionTime": "2017-02-11T01:34:15Z"
+		},
+		{
+			"checksumSHA1": "E3Xcanc9ouQwL+CZGOUyA/+giLg=",
+			"path": "github.com/hashicorp/serf/coordinate",
+			"revision": "19f2c401e122352c047a84d6584dd51e2fb8fcc4",
+			"revisionTime": "2017-03-08T19:39:51Z"
+		},
+		{
+			"checksumSHA1": "BoXdUBWB8UnSlFlbnuTQaPqfCGk=",
+			"path": "github.com/op/go-logging",
+			"revision": "970db520ece77730c7e4724c61121037378659d9",
+			"revisionTime": "2016-03-15T20:05:05Z"
+		}
+	],
+	"rootPath": "github.com/henriquechehad/freeswitch-scaller"
+}
