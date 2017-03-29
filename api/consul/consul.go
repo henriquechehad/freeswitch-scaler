@@ -18,7 +18,7 @@ func NewClient(c *ConsulConf) error {
 
 	client, err := consulApi.NewClient(cfg)
 	if err != nil {
-		log.Println("Error getting consul client:", err)
+		log.Println("Error creating consul client:", err)
 		return err
 	}
 
@@ -45,4 +45,15 @@ func (c *ConsulConf) UpdateKV(addr string, key string, value []byte) error {
 	}
 
 	return nil
+}
+
+func (c *ConsulConf) LookupKV(key string) (*consulApi.KVPair, error) {
+	kv := c.Client.KV()
+
+	// Lookup the key
+	pair, _, err := kv.Get(key, nil)
+	if err != nil {
+		return nil, err
+	}
+	return pair, nil
 }

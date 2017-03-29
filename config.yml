@@ -1,4 +1,4 @@
-consul_server: "127.0.0.1:8500"
+consul_server: "192.168.0.28:8500"
 esl_default_timeout: 10
 esl_default_port: 8021
 esl_default_password: "ClueCon"

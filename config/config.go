@@ -9,7 +9,7 @@ import (
 )
 
 type config struct {
-	ConsulServer string `yaml:"consul_servers"`
+	ConsulServer string `yaml:"consul_server"`
 	ESLTimeout   int    `yaml:"esl_default_timeout"`
 	ESLPassword  string `yaml:"esl_default_password"`
 	ESLPort      int    `yaml:"esl_default_port"`
